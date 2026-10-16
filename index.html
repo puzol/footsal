@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Footsal — fizika</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #17191d;
+        overflow: hidden;
+        font-family: "Segoe UI", sans-serif;
+      }
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      #hud {
+        position: fixed;
+        left: 16px;
+        top: 14px;
+        color: #f2f2f2;
+        text-shadow: 0 1px 2px #000;
+        pointer-events: none;
+        user-select: none;
+      }
+      #score {
+        margin-top: 8px;
+        font-size: 22px;
+        letter-spacing: 0.04em;
+      }
+      #status,
+      #help {
+        margin-top: 6px;
+        font-size: 14px;
+        opacity: 0.92;
+      }
+      #meter {
+        margin-top: 10px;
+        width: 180px;
+        height: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        background: rgba(0, 0, 0, 0.35);
+        position: relative;
+        opacity: 0.35;
+      }
+      #meter.on {
+        opacity: 1;
+      }
+      #meter-fill {
+        height: 100%;
+        width: 0;
+        background: #f0f0f0;
+      }
+      #meter-half {
+        position: absolute;
+        left: 50%;
+        top: -3px;
+        width: 1px;
+        height: 16px;
+        background: #7eb6ff;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="view"></canvas>
+    <div id="hud">
+      <div>Footsal · prototip fizike</div>
+      <div id="score"></div>
+      <div id="status"></div>
+      <div id="help"></div>
+      <div id="meter"><div id="meter-fill"></div><div id="meter-half"></div></div>
+    </div>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
+          "cannon-es": "https://unpkg.com/cannon-es@0.20.0/dist/cannon-es.js"
+        }
+      }
+    </script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
